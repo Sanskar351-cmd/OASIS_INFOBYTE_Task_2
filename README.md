@@ -1,55 +1,55 @@
-# Task 3 – SQL Injection on DVWA (Low Security)  
-**Oasis Infobyte – Security Analyst Internship**
+# 🔥 Task 2 — Basic Firewall Configuration Using UFW  
+**Oasis Infobyte Cybersecurity Internship — Beginner Level**
 
 ## 📌 Objective  
-Demonstrate an SQL Injection attack on the DVWA web application with security level set to Low.
+The goal of this task is to configure a basic firewall on a Linux system using **UFW (Uncomplicated Firewall)**. UFW is a simple yet powerful firewall used to manage incoming/outgoing traffic.
 
 ---
 
-## 🛠 Tools Used  
-- DVWA (Damn Vulnerable Web Application)  
-- Browser (Firefox/Chrome)  
-- Burp Suite (optional)  
-- `curl` (for automated exploit in script)
+## ⚙️ Tools Used  
+- **Linux (Ubuntu Recommended)**  
+- **UFW (Uncomplicated Firewall)**  
+- Terminal / Bash  
 
 ---
 
-## 🚀 Steps Performed
+## 🛠️ Steps Performed
 
-### 1️⃣ Installed and configured DVWA  
-Set up DVWA on a local environment and completed database setup.
+### **1️⃣ Installed UFW**
+Updated the system and installed UFW:
+```bash
+sudo apt update
+sudo apt install ufw
+2️⃣ Enabled the Firewall
+sudo ufw enable
 
-### 2️⃣ Set security level to Low  
-This disables sanitization and makes SQL Injection possible.
+3️⃣ Allowed SSH Traffic (Port 22)
 
-### 3️⃣ Performed SQL Injection  
-Payload used:  
+This ensures remote login is not blocked:
 
-This manipulates the SQL query and forces the database to return all user records.
+sudo ufw allow ssh
 
-### 4️⃣ Automated the attack  
-Created a script `sql_injection_exploit.sh` to submit SQLi payload automatically using `curl`.
+4️⃣ Denied HTTP Traffic (Port 80)
 
-### 5️⃣ Captured screenshots  
-Screenshots include:
-- DVWA SQL Injection page  
-- Injected payload  
-- Extracted database results  
+To block web server access:
 
----
+sudo ufw deny http
 
-## 📁 Files Included  
-- `sql_injection_exploit.sh`  
-- `dvwa_sqli_screenshot.png`  
-- `README.md`
-- `demo.mp4`
+5️⃣ Verified Active Rules
+sudo ufw status verbose
 
----
 
-## 🎥 Demo Video  
-A demo video showing the SQL Injection process is included as per internship instructions.
+📸 Screenshot included in repo showing active rules.
 
----
+📄 Script Used
 
-## ✅ Task Completed  
-This task demonstrates how improper input validation allows attackers to manipulate backend queries and extract sensitive data.
+The automation script is included:
+✔️ ufw_configuration.sh
+
+🖼️ Screenshot
+
+A screenshot of the UFW status output is included as:
+📌 ufw_status_screenshot.png
+✅ Task Completion Status
+
+This task has been completed successfully as part of the Oasis Infobyte Cybersecurity Internship.
